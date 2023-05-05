@@ -1,55 +1,49 @@
 <?php
-session_start();
+    require_once('database.php');
+    session_start();
 
-if (isset($_POST['email']) && isset($_POST['passwd1'])) {
     $email = $_POST['email'];
     $passwd1 = $_POST['passwd1'];
-
-    if (!empty($email) && !empty($passwd1)) {
-        $host = "localhost";
-        $dbusername = "root";
-        $dbpassword = "";
-        $dbname = "lr_admin";
-
-        $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
-        }
-
-        $SELECT = "SELECT * FROM register WHERE email = ?";
-        $stmt = $conn->prepare($SELECT);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows == 1) {
-            $user = $result->fetch_assoc();
-            if (password_verify($passwd1, $user['passwd1'])) {
-                $_SESSION['user_id'] = $user['id'];
-                header("Location: https://www.prakasoft.com/");
-                exit;
-                
-            }else {
-                header("Location: https://www.prakasoft.com/");
-            } 
-            
-        } else {
-            $error = "The entered email is not registered.";
-        }
-
-        $stmt->close();
-        $conn->close();
-    } else {
-        $error = "Both email and password are required.";
+    if (empty($email) && empty($passwd1)) {
+        header('Location: login.html');
+        exit();
     }
-}
 
-if (isset($_SESSION['user_id'])) {
-    header("Location: home.html");
-    exit;
-}
+    if(isset($_SESSION['s'])){
+        header('Location: index.php');
+        exit();
+    }
 
-if (isset($error)) {
-    echo $error;
-}
+    if($data = $conn->prepare('SELECT id, uname, email, passwd1 FROM register WHERE email = ?')){
+        $data->bind_param('s', $email);
+        $data->execute();
+        $data->store_result();
+    
+        if($data->num_rows > 0){
+            $data->bind_result($id, $uname, $email, $passwd1);
+            $data->fetch();
+    
+            // kullanıcının girdiği şifre ile veritabanındaki şifre eşleşiyor mu kontrol edin
+            if(password_verify($_POST['passwd1'], $passwd1)){
+                // doğru şifre, oturum oluşturun
+                session_regenerate_id();
+                $_SESSION['loggedin'] = TRUE;
+                $_SESSION['id'] = $id;
+                $_SESSION['uname'] = $uname;
+                $_SESSION['email'] = $email;
+                        
+                header('Location: index.php');
+                exit();
+            }else {
+                // yanlış şifre
+                echo ' Şifre eşleşmesi hata!';
+            }
+        }else {
+            // email adresi veritabanında yok
+            echo 'Deneme hata 1';
+        }
+    }
+    
+
+
 ?>
