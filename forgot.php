@@ -12,18 +12,19 @@
 
                 $result = $data -> get_result();
                 if($result -> num_rows > 0){
-                    echo 'Email adresi bulundu!';
+                    // A password reset e-mail is sent to the user e-mail address.
+                    echo 'Email address found!';
                 }else{
-                    echo 'Email Adresi bulunamadı!!!!!';
+                    echo 'Email address not found!';
                 }
             }
         }
         else {
-            header('Location: index.html');
+            header('Location: forgot-password.php');
             exit();
         }
     }else {
-        header('Location: index.html');
+        header('Location: forgot-password.php');
         exit();
     }
 

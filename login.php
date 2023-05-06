@@ -14,17 +14,17 @@
         exit();
     }
 
-    if($data = $conn->prepare('SELECT id, uname, email, passwd1 FROM register WHERE email = ?')){
+    if($data = $conn->prepare('SELECT id, uname, email, password FROM register WHERE email = ?')){
         $data->bind_param('s', $email);
         $data->execute();
         $data->store_result();
     
         if($data->num_rows > 0){
-            $data->bind_result($id, $uname, $email, $passwd1);
+            $data->bind_result($id, $uname, $email, $password);
             $data->fetch();
     
             // kullanıcının girdiği şifre ile veritabanındaki şifre eşleşiyor mu kontrol edin
-            if(password_verify($_POST['passwd1'], $passwd1)){
+            if(password_verify($_POST['passwd1'], $password)){
                 // doğru şifre, oturum oluşturun
                 session_regenerate_id();
                 $_SESSION['loggedin'] = TRUE;

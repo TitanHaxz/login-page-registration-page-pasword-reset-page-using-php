@@ -40,7 +40,7 @@
           />
         </div>
         <button type="submit">Update Password</button>
-        <a href="index.html"><button class="red">Home - Back</button></a>
+        <a href="index.php"><button class="red">Home - Back</button></a>
         <a href="logout.php"><button class="red">Logout</button></a>
       </form>
 

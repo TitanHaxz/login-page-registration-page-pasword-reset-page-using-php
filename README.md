@@ -2,7 +2,7 @@
 
 This project contains simple login, registration, and password reset pages using PHP. The developer of the project has shared the source code on GitHub and allowed users to fork and make changes.
 
-I have forked this project and made some changes. The project was saving the password to the database twice unnecessarily, so I removed that. Additionally, I simplified the password creation validation and increased the security of user passwords by hashing them. Multiple sign-ups with the same email were not allowed. I completely reorganized the password change and password creation files. Also, I added a simple index.html page, where the login or registration options are presented if the user is not logged in, and user information is displayed if logged in.
+I have forked this project and made some changes. The project was saving the password to the database twice unnecessarily, so I removed that. Additionally, I simplified the password creation validation and increased the security of user passwords by hashing them. Multiple sign-ups with the same email were not allowed. I completely reorganized the password change and password creation files. Also, I added a simple index.php page, where the login or registration options are presented if the user is not logged in, and user information is displayed if logged in.
 
 HTML, PHP, and CSS were used in this project.
 
@@ -13,11 +13,11 @@ HTML, PHP, and CSS were used in this project.
 - Made user passwords secure by hashing them.
 - Disallowed multiple sign-ups with the same email.
 - Completely reorganized the password change and password creation files.
-- Added a simple index.html page.
+- Added a simple index.php page.
 
 ## How to Use?
 
-Using the project is quite simple. First, you need to fork or download the project. Then, you can run the project on a PHP server. After running the project, you can go to the index.html page and sign up or log in.
+Using the project is quite simple. First, you need to fork or download the project. Then, you can run the project on a PHP server. After running the project, you can go to the index.php page and sign up or log in.
 
 ## Contributing
 
@@ -31,7 +31,7 @@ I would like to thank the developer who created this project. The project is esp
 
 Bu proje, PHP kullanarak basit bir giriş, kayıt ve şifre sıfırlama sayfalarını içermektedir. Projenin geliştiricisi, kaynak kodunu GitHub üzerinde paylaşmış ve kullanıcıların forklama yaparak değişiklikler yapmalarına olanak tanımıştır.
 
-Ben de bu projeyi forkladım ve bazı değişiklikler yaptım. Projede gereksiz iki kez şifre database kaydediliyordu, bu nedenle bu işlemi kaldırdım. Ayrıca, şifre oluşturma doğrulamasını daha basit hale getirdim ve kullanıcı şifrelerini hash ile güvenliğini arttırdım. Aynı e-posta ile birden fazla kaydolmaya izin verilmedi. Şifre değiştirme ve şifre oluşturma dosyalarını tamamen yeniden düzenledim. Ek olarak, basit bir index.html sayfası ekledim. Bu sayfada, giriş yapılmamışsa giriş yapma veya kayıt olma seçenekleri sunulurken, giriş yapılmışsa kullanıcının bilgileri gösterilmektedir.
+Ben de bu projeyi forkladım ve bazı değişiklikler yaptım. Projede gereksiz iki kez şifre database kaydediliyordu, bu nedenle bu işlemi kaldırdım. Ayrıca, şifre oluşturma doğrulamasını daha basit hale getirdim ve kullanıcı şifrelerini hash ile güvenliğini arttırdım. Aynı e-posta ile birden fazla kaydolmaya izin verilmedi. Şifre değiştirme ve şifre oluşturma dosyalarını tamamen yeniden düzenledim. Ek olarak, basit bir index.php sayfası ekledim. Bu sayfada, giriş yapılmamışsa giriş yapma veya kayıt olma seçenekleri sunulurken, giriş yapılmışsa kullanıcının bilgileri gösterilmektedir.
 
 Bu projede, HTML, PHP ve CSS kullanıldı.
 
@@ -42,11 +42,11 @@ Bu projede, HTML, PHP ve CSS kullanıldı.
 - Kullanıcı şifreleri hash ile güvenli hale getirildi.
 - Aynı e-posta ile birden fazla kayıt yapılamaz hale getirildi.
 - Şifre değiştirme ve şifre oluşturma dosyaları tamamen yeniden düzenlendi.
-- Basit bir index.html sayfası eklendi.
+- Basit bir index.php sayfası eklendi.
 
 ## Nasıl Kullanılır?
 
-Projenin kullanımı oldukça basittir. İlk olarak, projeyi forklamanız veya indirmeniz gerekmektedir. Ardından, projeyi bir PHP sunucusunda çalıştırabilirsiniz. Projeyi çalıştırdıktan sonra, index.html sayfasına giderek kayıt veya giriş yapabilirsiniz.
+Projenin kullanımı oldukça basittir. İlk olarak, projeyi forklamanız veya indirmeniz gerekmektedir. Ardından, projeyi bir PHP sunucusunda çalıştırabilirsiniz. Projeyi çalıştırdıktan sonra, index.php sayfasına giderek kayıt veya giriş yapabilirsiniz.
 
 ## Katkıda Bulunma
 

@@ -13,21 +13,25 @@
         $row = mysqli_fetch_assoc($result);
     
         // check if the old password matches the password in the database
-        if (password_verify($old_password, $row['passwd1'])) {
+        if (password_verify($old_password, $row['password'])) {
     
             // hash the new password
             $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
     
             // update the user's password in the database
-            $sql = "UPDATE register SET passwd1 = '$hashed_password' WHERE email = '$email'";
+            $sql = "UPDATE register SET password = '$hashed_password' WHERE email = '$email'";
             if (mysqli_query($conn, $sql)) {
                 echo "Password updated successfully!";
+                echo "<script>setTimeout(function(){window.location.href='index.php';},2300);</script>";
+                exit();
 
             } else {
                 echo "Error updating password: " . mysqli_error($conn);
             }
         } else {
             echo "Old password is incorrect!";
+            echo "<script>setTimeout(function(){window.location.href='change-password.php';},2300);</script>";
+            exit();
         }
     } else {
         echo "User not found!";
